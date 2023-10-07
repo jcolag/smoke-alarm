@@ -1,0 +1,84 @@
+input:invalid,
+input:out-of-range {
+  border: 2px dashed var(--red) !important;
+}
+
+main {
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  margin: auto;
+  max-width: 70ch;
+  padding: 3em 1em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 3em 0 1em;
+}
+
+p,ul,ol {
+  margin-bottom: 2em;
+}
+
+body {
+  background-color: var(--base03);
+  color: var(--base0);
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6, legend {
+  font-family: serif;
+}
+
+b, i, strong, em, blockquote, q {
+  color: var(--base1);
+}
+
+a {
+  color: var(--blue);
+}
+
+a:hover {
+  color: var(--red);
+}
+
+a:visited {
+  color: var(--violet);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th, hr {
+  border: 2px solid var(--base02);
+}
+
+caption, th {
+  background-color: var(--base0);
+  color: var(--base3);
+}
+
+img {
+  border-radius: 5%;
+}
+
+button,
+input,
+input::file-selector-button,
+optgroup,
+select,
+textarea {
+	background: var(--base2);
+	border: 1px solid var(--violet);
+	color: var(--base0);
+}
+
+embed, fieldset, iframe, object {
+	border: 2px solid var(--violet);
+}
+
+mark {
+  background: var(--yellow);
+}

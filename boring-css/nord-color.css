@@ -1,0 +1,58 @@
+/* Uses colors from https://www.nordtheme.com/ licensed under the
+ * terms of the MIT license.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base03: #2e3440;
+    --base02: #3b4252;
+    --base01: #434c5e;
+    --base0: #4c566a;
+    --base1: #d8dee9;
+    --base2:  #e5e9f0;
+    --base3: #eceff4;
+    --yellow: #ebcb8b;
+    --orange: #d08770;
+    --red: #bf616a;
+    --magenta: #cc6694;
+    --violet: #b48ead;
+    --blue: #796ef7;
+    --cyan: #8fbcbb;
+    --green: #a3be8c;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--orange);
+  }
+
+  code, kbd, pre, samp {
+    color: var(--blue);
+  }
+}
+
+@media (prefers-color-scheme: light), @media (prefers-color-scheme: no-preference) {
+  :root {
+    --base03: #eceff4;
+    --base02: #e5e9f0;
+    --base01: #d8dee9;
+    --base0: #4c566a;
+    --base1: #434c5e;
+    --base2: #3b4252;
+    --base3: #2e3440;
+    --yellow: #ebcb8b;
+    --orange: #d08770;
+    --red: #bf616a;
+    --magenta: #cc6694;
+    --violet: #b48ead;
+    --blue: #796ef7;
+    --cyan: #8fbcbb;
+    --green: #a3be8c;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--violet);
+  }
+
+  code, kbd, pre, samp {
+    color: var(--cyan);
+  }
+}
