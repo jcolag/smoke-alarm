@@ -1,0 +1,92 @@
+:root {
+  --background: hsl(217.5,26.7%,94.1%);
+  --blue: hsl(210,34%,63.1%);
+  --green: hsl(92.4,27.8%,64.7%);
+  --header: hsl(213.1,32%,52.2%);
+  --main-background: hsl(218.2,26.8%,92%);
+  --orange: hsl(14.4,50.5%,62.7%);
+  --purple: hsl(311.1,20.2%,63.1%);
+  --red: hsl(354.3,42.3%,56.5%);
+  --text: hsl(220,16.4%,21.6%);
+  --yellow: hsl(40,70.6%,73.3%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: hsl(220,16.4%,21.6%);
+    --header: hsl(193.3,43.4%,67.5%);
+    --main-background: hsl(221.7,16.3%,27.6%);
+    --text: hsl(217.5,26.7%,94.1%);
+  }
+}
+
+body {
+  color: var(--text);
+}
+
+button {
+  font-size: 1.25em;
+}
+
+input {
+  background-color: var(--background) !important;
+  color: var(--text) !important;
+}
+
+input:focus-visible {
+  outline: 3px solid var(--green) !important;
+}
+
+input:invalid,
+input:out-of-range {
+  border: 5px solid var(--red) !important;
+}
+
+main {
+  background-color: var(--main-background);
+  bottom: 1vh;
+  left: calc((100% - 70ch) / 2);
+  overflow-y: scroll;
+  position: absolute;
+  top: 1vh;
+  width: 70ch;
+}
+
+.full-row {
+  display: table-row;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.header .table-cell {
+  color: hsl(178.7,25.1%,64.9%);
+  font-weight: bold;
+}
+
+.num {
+  border-radius: 0.5rem;
+  color: hsl(220,16.8%,31.6%);
+  font-size: 3em;
+  text-align: center;
+  max-width: 4rem;
+}
+
+.row {
+  display: table-row;
+}
+
+.table {
+  display: table;
+  margin: 0 auto;
+}
+
+.table-cell {
+  display: table-cell;
+  padding: 0.5em;
+  max-width: 8ch;
+  text-align: center;
+  width: 8ch;
+}
+
