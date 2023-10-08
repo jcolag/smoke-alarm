@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link
+    href="boring-css/base.css"
+    media="screen"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="boring-css/nord-color.css"
+    media="screen"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="boring-css/material-language.css"
+    media="screen"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="smoke.css"
+    media="screen"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Access-Control-Allow-Origin" content="getpantry.cloud" />
+  <title>Smoke Alarm</title>
+  <script src="pantry.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  </script>
+</head>
+<body>
+  <main>
+    <h1>Smoke Alarm</h1>
+    <div>
+      This page exists to help you track certain prominent indicators
+      of burnout.
+    </div>
+    <div id="pantryError">
+      <p>
+        &#x26A0;&#xFE0F; You will need to
+        <a href="https://getpantry.cloud/" target="_blank">
+          create a Pantry
+        </a>&mdash;using any e-mail address and giving the Pantry
+        any name&mdash;to store your data, then copy its ID below.
+      <p>
+      <input
+        id="pantry"
+        name="pantry"
+        pattern="^\s*[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}\s*$"
+        style="margin-left: calc((100% - 36ch) / 2); text-align: center; width: 36ch;"
+        type="text"
+      />
+    </div>
+    <div class="table">
+      <div class="header row">
+        <div class="table-cell">
+          Autonomy
+        </div>
+        <div class="table-cell">
+          Fairness
+        </div>
+        <div class="table-cell">
+          Meaning
+        </div>
+        <div class="table-cell">
+          Reward
+        </div>
+        <div class="table-cell">
+          Support
+        </div>
+        <div class="table-cell">
+          Workload
+        </div>
+      </div>
+      <div class="row">
+        <div class="table-cell">
+          <input
+            class="num"
+            id="a"
+            max="5"
+            min="0"
+            name="autonomy"
+            type="number"
+          />
+        </div>
+        <div class="table-cell">
+          <input
+            class="num"
+            id="f"
+            max="5"
+            min="0"
+            name="fairness"
+            type="number"
+          />
+        </div>
+        <div class="table-cell">
+          <input
+            class="num"
+            id="m"
+            max="5"
+            min="0"
+            name="meaning"
+            type="number"
+          />
+        </div>
+        <div class="table-cell">
+          <input
+            class="num"
+            id="r"
+            max="5"
+            min="0"
+            name="reward"
+            type="number"
+          />
+        </div>
+        <div class="table-cell">
+          <input
+            class="num"
+            id="s"
+            max="5"
+            min="0"
+            name="support"
+            type="number"
+          />
+        </div>
+        <div class="table-cell">
+          <input
+            class="num"
+            id="w"
+            max="5"
+            min="0"
+            name="workload"
+            type="number"
+          />
+        </div>
+      </div>
+      <div class="full-row">
+        <button id="submit">
+          Submit for Today
+        </button>
+      </div>
+    </div>
+    <h2>Instructions</h2>
+    <div>
+      You will need&hellip;
+      <ul>
+        <li>A <a href="https://getpantry.cloud/" target="_blank">Pantry</a>.</li>
+        <li>Enough self-awareness to judge the indicators.</li>
+        <li>Patience, because it takes time for a trend to emerge.</li>
+      </ul>
+    </div>
+  </main>
+</body>
