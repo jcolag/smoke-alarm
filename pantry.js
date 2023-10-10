@@ -1,12 +1,23 @@
+let config = {};
 let pantry = {
   toots: [],
 };
+let pantryId = null;
 let pantryInterval = null;
 
 window.addEventListener('load', () => {
   let submit = document.getElementById('submit');
+  let pantryError = document.getElementById('pantryError');
+  let usePantry = document.getElementById('usePantry');
+
+  pantryId = localStorage.getItem('pantryId');
+
+  if (pantryId === null) {
+    pantryError.style['display'] = 'block';
+  }
 
   submit.disabled = true;
+  usePantry.disabled = true;
   submit.title = 'Please fill in your daily assessments.';
   pantryInterval = setInterval(getPantry, 250);
 });
