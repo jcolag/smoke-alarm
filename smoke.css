@@ -52,6 +52,14 @@ main {
   width: 70ch;
 }
 
+.error-panel {
+  border: 2px solid var(--yellow);
+}
+
+.error-panel p {
+  padding: 0 2em;
+}
+
 .full-row {
   display: table-row;
   left: 0;
