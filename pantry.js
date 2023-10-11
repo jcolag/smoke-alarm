@@ -1,6 +1,7 @@
-let config = {};
+let config = {
+  pantryId: null,
+};
 let pantry = {
-  toots: [],
 };
 let pantryId = null;
 let pantryInterval = null;
@@ -83,5 +84,14 @@ function changePantry() {
   const usePantry = document.getElementById('usePantry');
 
   usePantry.disabled = !pantryInput.checkValidity() || pantryInput.value.length < 1;
+}
+
+function stashPantryId() {
+  const id = document.getElementById('pantry');
+  const pantryError = document.getElementById('pantryError');
+
+  localStorage.setItem('pantryId', id.value);
+  config.pantryId = id.value;
+  pantryError.style['display'] = 'none';
 }
 
