@@ -78,3 +78,10 @@ function updatePantry() {
   );
 }
 
+function changePantry() {
+  const pantryInput = document.getElementById('pantry');
+  const usePantry = document.getElementById('usePantry');
+
+  usePantry.disabled = !pantryInput.checkValidity() || pantryInput.value.length < 1;
+}
+

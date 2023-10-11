@@ -53,6 +53,8 @@
         name="pantry"
         pattern="^\s*[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}\s*$"
         placeholder="12345678-9012-3456-7890-123456789012"
+        oninput="changePantry();"
+        onpaste="changePantry();"
         style="margin-left: calc((100% - 36ch) / 2); text-align: center; width: 36ch;"
         type="text"
       />
