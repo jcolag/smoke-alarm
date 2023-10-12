@@ -1,19 +1,26 @@
-let config = {
-  pantryId: null,
-};
-let pantry = {
-};
+let config = {};
+let dailies = [];
+let pantry = {};
 let pantryId = null;
 let pantryInterval = null;
+let values = {
+  date: new Date().toISOString(),
+  a: null,
+  f: null,
+  m: null,
+  r: null,
+  s: null,
+  w: null,
+};
 
 window.addEventListener('load', () => {
-  let submit = document.getElementById('submit');
-  let pantryError = document.getElementById('pantryError');
-  let usePantry = document.getElementById('usePantry');
+  const submit = document.getElementById('submit');
+  const pantryError = document.getElementById('pantryError');
+  const usePantry = document.getElementById('usePantry');
 
-  pantryId = localStorage.getItem('pantryId');
+  config.pantryId = localStorage.getItem('pantryId');
 
-  if (pantryId === null) {
+  if (config.pantryId === null) {
     pantryError.style['display'] = 'block';
   }
 
@@ -24,59 +31,33 @@ window.addEventListener('load', () => {
 });
 
 function getPantry() {
-  if (!Object.prototype.hasOwnProperty.call(config, 'pantry')) {
+  if (!Object.prototype.hasOwnProperty.call(config, 'pantryId') || config.pantryId === null) {
     return;
   }
 
   httpGet(
-    `https://getpantry.cloud/apiv1/pantry/${config.pantry.trim()}`
-      + '/basket/Rummager',
+    `https://getpantry.cloud/apiv1/pantry/${config.pantryId.trim()}`,
     null,
     assignPantry
   );
 
   clearInterval(pantryInterval);
-  pantryInterval = setInterval(updatePantry, 500);
 }
 
 function assignPantry(p) {
   pantry = p;
-  if (!Object.prototype.hasOwnProperty.call(pantry, 'toots')) {
-    pantry.toots = [];
   }
 }
 
 function updatePantry() {
-  if (timeline.length === 0) {
+
+  if (!Object.prototype.hasOwnProperty.call(config, 'pantryId')) {
     return;
   }
 
-  if (!Object.prototype.hasOwnProperty.call(config, 'pantry')) {
-    return;
+
   }
 
-  let ids = timeline.map((t) => t.id);
-  const rids = timeline
-    .map((t) => t.reblog)
-    .filter((t) => t)
-    .map((t) => t.id);
-
-  for (let i = 0; i < rids.length; i++) {
-    ids.push(rids[i]);
-  }
-
-  for (let i = 0; i < pantry.toots; i++) {
-    ids.push(pantry.toots[i]);
-  }
-
-  pantry.toots = ids.filter((v, i, a) => a.indexOf(v) === i)
-  clearInterval(pantryInterval);
-  pantryInterval = null;
-  httpPut(
-    `https://getpantry.cloud/apiv1/pantry/${config.pantry.trim()}`
-      + '/basket/Rummager',
-    pantry
-  );
 }
 
 function changePantry() {
@@ -91,7 +72,7 @@ function stashPantryId() {
   const pantryError = document.getElementById('pantryError');
 
   localStorage.setItem('pantryId', id.value);
-  config.pantryId = id.value;
+  config.pantryId = id.value.trim();
   pantryError.style['display'] = 'none';
 }
 
