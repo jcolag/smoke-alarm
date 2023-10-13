@@ -55,6 +55,12 @@ function updatePantry() {
     return;
   }
 
+  httpPut(
+    `https://getpantry.cloud/apiv1/pantry/${config.pantryId.trim()}`
+      + '/basket/Smoke',
+    basket
+  );
+}
 
   }
 
