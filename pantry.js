@@ -62,8 +62,47 @@ function updatePantry() {
   );
 }
 
+// Adapted from https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests
+function httpGet(url, auth, assigner) {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('GET', url, true);
+  if (auth) {
+    xhr.setRequestHeader('Authorization', auth);
   }
 
+  xhr.onload = () => {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        assigner(JSON.parse(xhr.responseText));
+      } else {
+        console.error(xhr.statusText);
+        return null;
+      }
+    }
+  };
+  xhr.onerror = (e) => {
+    console.log(e);
+    console.error(xhr.statusText);
+    return null;
+  };
+  xhr.send(null);
+  latch = false;
+}
+
+function httpPut(url, data) {
+  const xhr = new XMLHttpRequest();
+
+  xhr.withCredentials = true;
+  xhr.addEventListener('readystatechange', function() {
+    if (this.readyState === 4) {
+      return this.responseText;
+    }
+  });
+  xhr.open('PUT', url);
+  xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://getpantry.cloud');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(data));
 }
 
 function changePantry() {
