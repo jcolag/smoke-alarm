@@ -121,3 +121,23 @@ function stashPantryId() {
   pantryError.style['display'] = 'none';
 }
 
+function valueInput(key) {
+  const num = document.getElementById(key);
+  const submit = document.getElementById('submit');
+  const pantryId = localStorage.getItem('pantryId');
+
+  if (num.value.length <= 0) {
+    values[key] = null;
+  } else if (num.checkValidity()) {
+    values[key] = Number(num.value);
+  }
+
+  submit.disabled = pantryId === null
+    || values.a === null
+    || values.f === null
+    || values.m === null
+    || values.r === null
+    || values.s === null
+    || values.w === null;
+}
+
