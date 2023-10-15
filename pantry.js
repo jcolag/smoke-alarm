@@ -46,7 +46,18 @@ function getPantry() {
 
 function assignPantry(p) {
   pantry = p;
+
+  if (pantry.baskets.length <= 0) {
+    createBasket('Smoke');
   }
+
+  const basket = pantry.baskets.filter((b) => b.name === 'Smoke')[0];
+
+  if (!Object.prototype.hasOwnProperty.call(basket, 'dailies')) {
+    basket.dailies = [];
+  }
+
+  dailies = basket.dailies;
 }
 
 function updatePantry() {
@@ -58,6 +69,20 @@ function updatePantry() {
   httpPut(
     `https://getpantry.cloud/apiv1/pantry/${config.pantryId.trim()}`
       + '/basket/Smoke',
+    basket
+  );
+}
+
+function createBasket(name) {
+  const basket = {
+    dailies: [],
+    name: name,
+  };
+
+  pantry.baskets.push(basket);
+  httpPut(
+    `https://getpantry.cloud/apiv1/pantry/${config.pantryId.trim()}`
+      + `/basket/${name}`,
     basket
   );
 }
