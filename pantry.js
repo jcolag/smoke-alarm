@@ -61,6 +61,7 @@ function assignPantry(p) {
 }
 
 function updatePantry() {
+  const basket = pantry.baskets.filter((b) => b.name === 'Smoke')[0];
 
   if (!Object.prototype.hasOwnProperty.call(config, 'pantryId')) {
     return;
