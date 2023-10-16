@@ -167,3 +167,8 @@ function valueInput(key) {
     || values.w === null;
 }
 
+function submitDay() {
+  pantry.baskets.filter((b) => b.name === 'Smoke')[0].dailies.push(values);
+  updatePantry();
+}
+
